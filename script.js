@@ -22,17 +22,9 @@ const {
 	add
 } = data
 
-function calcCash(own) {
-	own = own || 0;
-	let everyCash = Array.prototype.slice.call(arguments);
-	let total = own;
-	for (let i = 0; i < everyCash[1].length; i++) {
-		total += +everyCash[1][i];
-	}
-	return total;
-}
+const calcCash = everyCash => everyCash.reduce((prev, curr) => prev + curr);
 
-const lesson = calcCash(null, data.cash);
+const lesson = calcCash(cash);
 
 const makeBusiness = (director, teacher, allModule, gang, course) => {
 	teacher = teacher || 'Максим';
